@@ -186,6 +186,9 @@ dependencies {
 //    }*/
 //    implementation "com.crashlytics.sdk.android:crashlytics:2.10.0"
 
+    // Date Time Picker
+    implementation "com.wdullaer:materialdatetimepicker:$datetimepicker_version"
+
     //sdp
     implementation "com.intuit.sdp:sdp-android:$sdp_version"
 
