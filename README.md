@@ -1,5 +1,6 @@
 # Codebase for android
- ![Fizhu](https://trello-attachments.s3.amazonaws.com/5d7725b31c9f2e3f9d57a132/608x608/58de3df5c669f7fb8edf365e4632936d/logo_base.png=100)
+
+ <img src="https://trello-attachments.s3.amazonaws.com/5d7725b31c9f2e3f9d57a132/608x608/58de3df5c669f7fb8edf365e4632936d/logo_base.png" width="48">
 
 This codebase written in kotlin (mostly)
 
