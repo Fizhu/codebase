@@ -1,9 +1,8 @@
 # Codebase for android
 
-<img src="https://trello-attachments.s3.amazonaws.com/5d7725b31c9f2e3f9d57a132/608x608/58de3df5c669f7fb8edf365e4632936d/logo_base.png" width="100">  # About This Codebase
+<img src="https://trello-attachments.s3.amazonaws.com/5d7725b31c9f2e3f9d57a132/608x608/58de3df5c669f7fb8edf365e4632936d/logo_base.png" width="100">  This codebase written in kotlin (mostly)
 
-This codebase written in kotlin (mostly)
-
+# About This Codebase
 This codebase is still under development and will have several updates to go.
 
 What is the contents in this codebase?
