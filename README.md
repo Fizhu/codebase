@@ -9,7 +9,9 @@ What is the contents in this codebase?
 - Api client setup (Retrofit, okHttp, etc.)
 - RxJava setup
 - Dagger 2 setup
+- MVP Pattern Architecture
 - Multidex setup
+- Include several build up function that ready to use (SharedPreferences, Date formatter, etc.)
 - Several useful dependencies that are often used.
 - etc.
 
