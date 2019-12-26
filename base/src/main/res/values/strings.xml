@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Base</string>
+
+    <string name="title_dialog_success">Sukses!</string>
+    <string name="title_dialog_warning">Peringatan!</string>
+    <string name="title_dialog_error">Kesalahan!</string>
+    <string name="codebase">Codebase</string>
+    <string name="tinggal_pake_aja_cuy">Tinggal pake aja cuy !</string>
+    <string name="copyright">Ⓒ fizhu - 2019</string>
 </resources>

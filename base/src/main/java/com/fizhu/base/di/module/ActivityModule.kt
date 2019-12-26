@@ -1,6 +1,11 @@
 package com.kazee.waktoo.di.module
 
 import android.app.Activity
+import com.fizhu.base.ui.activity.home.HomeContract
+import com.fizhu.base.ui.activity.home.HomePresenter
+import com.fizhu.base.ui.activity.splash.SplashContract
+import com.fizhu.base.ui.activity.splash.SplashPresenter
+import com.kazee.waktoo.di.scope.PreActivity
 import dagger.Module
 import dagger.Provides
 
@@ -16,12 +21,12 @@ class ActivityModule(private val activity: Activity) {
         return activity
     }
 
-//    @Provides
-//    @PreActivity
-//    fun provideSplashPresenter(): SplashContract.Presenter = SplashPresenter()
+    @Provides
+    @PreActivity
+    fun provideSplashPresenter(): SplashContract.Presenter = SplashPresenter()
 //
-//    @Provides
-//    fun provideLoginPresenter(): LoginContract.Presenter = LoginPresenter()
+    @Provides
+    fun provideHomePresenter(): HomeContract.Presenter = HomePresenter()
 
 
 //    @Provides

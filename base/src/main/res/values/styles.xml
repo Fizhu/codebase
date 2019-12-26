@@ -9,6 +9,10 @@
         <item name="android:fontFamily">@font/mulireg</item>
     </style>
 
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/splash_bg</item>
+    </style>
+
     <!-- clickable item style -->
     <style name="SelectableItemBackground">
         <item name="android:clickable">true</item>

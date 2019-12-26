@@ -76,7 +76,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
     override val rootView: View
         get() = window.decorView.rootView
 
-//    override fun onError(message: String) {
+    override fun onError(message: String) {
 //        Fungsiku.dismissProgressDialog()
 //        Fungsiku.showPopUpDialog(
 //            this,
@@ -84,9 +84,9 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
 //        )
 //
 //        redirectToLoginIfMust(message)
-//    }
+    }
 
-//    override fun showWarningAlert(message: String) {
+    override fun showWarningAlert(message: String) {
 //        Fungsiku.dismissProgressDialog()
 //
 //        Fungsiku.showPopUpDialog(
@@ -95,7 +95,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseContract.View {
 //        )
 //
 //        redirectToLoginIfMust(message)
-//    }
+    }
 
     fun startActivityWithFade(clazz: Class<*>) {
         startActivity(clazz)
