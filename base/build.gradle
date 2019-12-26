@@ -1,0 +1,195 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+//apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'io.fabric'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion "29.0.0"
+    defaultConfig {
+        applicationId "com.fizhu.base"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+
+        // Add a BuildConfig timestamp
+        buildConfigField "long", "M_TIMESTAMP", System.currentTimeMillis() + "L"
+    }
+
+    // Add this block and enable/disable the parameters as follows
+    bundle {
+        density {
+            // Different APKs are generated for devices with different screen densities; true by default.
+            enableSplit true
+        }
+        abi {
+            // Different APKs are generated for devices with different CPU architectures; true by default.
+            enableSplit true
+        }
+        language {
+            // This is disabled so that the App Bundle does NOT split the APK for each language.
+            // We're gonna use the same APK for all languages.
+            enableSplit false
+        }
+    }
+
+    // Define the endpoint strings
+    def endpointFile = file('endpoint.properties')
+    def Properties endpointProperties = new Properties()
+    endpointProperties.load(new FileInputStream(endpointFile))
+
+    // Specify the build dimension and flavors
+    flavorDimensions "api"
+    productFlavors {
+        development {
+            dimension "api"
+//            applicationIdSuffix '.staging'
+//            versionNameSuffix "-development"
+
+            buildConfigField 'String', 'M_WEB_URL', endpointProperties['DEVELOPMENT_URL']
+            buildConfigField 'String', 'M_API_URL', endpointProperties['DEVELOPMENT_URL_API']
+            buildConfigField 'String', 'M_API_KEY', endpointProperties['DEVELOPMENT_API_KEY']
+        }
+        production {
+            dimension "api"
+            buildConfigField 'String', 'M_WEB_URL', endpointProperties['PRODUCTION_URL']
+            buildConfigField 'String', 'M_API_URL', endpointProperties['PRODUCTION_URL_API']
+            buildConfigField 'String', 'M_API_KEY', endpointProperties['PRODUCTION_API_KEY']
+        }
+    }
+
+//    signingConfigs {
+//        config {
+//            keyAlias 'alias'
+//            keyPassword 'password'
+//            storeFile file('/home/fizhu/AndroidStudioProjects/dir')
+//            storePassword 'storePassword'
+//        }
+//    }
+
+    buildTypes {
+        debug {
+            shrinkResources false
+            minifyEnabled false
+            debuggable true
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            proguardFiles fileTree('proguard').asList().toArray()
+        }
+        release {
+            shrinkResources true
+            minifyEnabled true
+            debuggable false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            proguardFiles fileTree('proguard').asList().toArray()
+
+//            signingConfig signingConfigs.config
+        }
+
+        android.applicationVariants.all { variant ->
+            variant.outputs.all { output ->
+//                    outputFileName = "${output.outputFile.name}-${variant.versionName}.apk"
+                def formattedDate = new Date().format('ddMMyy')
+                outputFileName = output.outputFile.name.replace(".apk", "-${variant.versionName}-${formattedDate}.apk")
+
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    //Google Maps
+//    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+//    implementation 'com.google.android.gms:play-services-location:17.0.0'
+
+    // Android Material Design
+    implementation 'com.google.android.material:material:1.0.0'
+
+    // MultiDex
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    // Dependency Injection
+    implementation "com.google.dagger:dagger:$dagger2_version"
+    implementation "com.google.dagger:dagger-android:$dagger2_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger2_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger2_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger2_version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger2_version"
+    compileOnly 'javax.annotation:jsr250-api:1.0'
+    implementation 'javax.inject:javax.inject:1'
+
+    // Rx
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava2_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    implementation "com.jakewharton.rxbinding3:rxbinding:$rxbinding_version"
+
+    // Retrofit2 + Gson
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit2_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit2_version"
+
+    // Ripple Background
+    implementation "com.skyfishjy.ripplebackground:library:$ripplebackground_version"
+
+    // Circle Image View
+    implementation "de.hdodenhof:circleimageview:$circleimageview_version"
+
+    // App Updater
+//    implementation "com.github.javiersantos:AppUpdater:$appupdater_version"
+
+    // Sweet Alert
+    implementation project(':library')
+//    implementation "cn.pedant.sweetalert:library:$sweetalert_version"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+
+    // Play Services
+//    implementation "com.google.android.gms:play-services-location:$playservices_version"
+//    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+
+    // Compressor
+    implementation "id.zelory:compressor:$compressor_version"
+
+    // Chuck HTTP inspector
+    debugImplementation "com.readystatesoftware.chuck:library:$chuck_version"
+
+    // Chart
+    implementation "com.github.PhilJay:MPAndroidChart:$mpandroidchart_version"
+
+    // Firebase
+//    implementation "com.google.firebase:firebase-core:16.0.9"
+//    implementation "com.google.firebase:firebase-messaging:17.6.0"
+//    implementation 'com.firebase:firebase-jobdispatcher:0.8.6'
+//    /*implementation("com.crashlytics.sdk.android:crashlytics:2.10.0") {
+//        transitive = true
+//    }*/
+//    implementation "com.crashlytics.sdk.android:crashlytics:2.10.0"
+
+    //sdp
+    implementation "com.intuit.sdp:sdp-android:$sdp_version"
+
+    //ssp
+    implementation "com.intuit.sdp:sdp-android:$ssp_version"
+
+}

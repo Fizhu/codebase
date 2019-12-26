@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/layout_error_state"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:minHeight="@dimen/_300sdp"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_image_no_con"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:src="@drawable/ic_nocon"/>
+
+    <TextView
+        android:id="@+id/tv_judul_no_con"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Tidak ada koneksi"/>
+
+    <TextView
+        android:id="@+id/tv_keterangan_no_con"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textAlignment="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="@dimen/_200sdp"
+        android:text="Periksa kembali koneksi anda\nLalu coba untuk memuat ulang data"/>
+
+</LinearLayout>
