@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:gravity="center"
+    android:background="@android:color/white"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,17 +12,23 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Welcome !"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/animation_view"
         android:fontFamily="@font/mulibold"
-        android:text="Booooom !"
-        android:textSize="17sp"/>
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="@dimen/_50sdp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/mulibold"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:text=":)"
-        android:textSize="20sp"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:layout_width="@dimen/_170sdp"
+        android:layout_height="@dimen/_200sdp"
+        android:scaleType="centerCrop"
+        android:layout_centerInParent="true"
+        app:lottie_rawRes="@raw/file_recover"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true" />
 
 
-</LinearLayout>
+</RelativeLayout>

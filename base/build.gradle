@@ -195,4 +195,7 @@ dependencies {
     //ssp
     implementation "com.intuit.sdp:sdp-android:$ssp_version"
 
+    //Lottie
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
 }
