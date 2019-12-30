@@ -2,8 +2,10 @@ package com.fizhu.base.ui.activity.home
 
 import android.os.Bundle
 import com.fizhu.base.R
+import com.fizhu.base.ui.activity.timeline.TimelineActivity
 import com.kazee.waktoo.common.base.BaseActivity
 import com.kazee.waktoo.model.persetujuan.ContohData
+import kotlinx.android.synthetic.main.activity_home.*
 import javax.inject.Inject
 
 class HomeActivity : BaseActivity(), HomeContract.View {
@@ -18,9 +20,11 @@ class HomeActivity : BaseActivity(), HomeContract.View {
     }
 
     override fun onInit() {
+        initView()
     }
 
     override fun initView() {
+        btn_timeline.setOnClickListener { startActivity(TimelineActivity::class.java) }
     }
 
     override fun onSuccessPostData(data: List<ContohData>) {

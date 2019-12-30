@@ -3,4 +3,7 @@
     <color name="colorPrimary">#82B1FF</color>
     <color name="colorPrimaryDark">#8C9EFF</color>
     <color name="colorAccent">#FFE57F</color>
+
+    <color name="abu">#BEBEBE</color>
+    <color name="like">#F65454</color>
 </resources>

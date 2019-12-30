@@ -5,6 +5,8 @@ import com.fizhu.base.ui.activity.home.HomeContract
 import com.fizhu.base.ui.activity.home.HomePresenter
 import com.fizhu.base.ui.activity.splash.SplashContract
 import com.fizhu.base.ui.activity.splash.SplashPresenter
+import com.fizhu.base.ui.activity.timeline.TimelineContract
+import com.fizhu.base.ui.activity.timeline.TimelinePresenter
 import com.kazee.waktoo.di.scope.PreActivity
 import dagger.Module
 import dagger.Provides
@@ -24,9 +26,12 @@ class ActivityModule(private val activity: Activity) {
     @Provides
     @PreActivity
     fun provideSplashPresenter(): SplashContract.Presenter = SplashPresenter()
-//
+
     @Provides
     fun provideHomePresenter(): HomeContract.Presenter = HomePresenter()
+
+    @Provides
+    fun provideTimelinePresenter(): TimelineContract.Presenter = TimelinePresenter()
 
 
 //    @Provides

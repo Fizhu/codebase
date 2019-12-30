@@ -36,6 +36,10 @@
 
         <!-- deklarasi activity -->
         <activity
+            android:name=".ui.activity.timeline.TimelineActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ui.activity.home.HomeActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
