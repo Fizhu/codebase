@@ -1,5 +1,6 @@
 package com.fizhu.base.ui.activity.splash
 
+import android.content.Context
 import com.fizhu.base.model.user.DataUser
 import com.kazee.waktoo.di.scope.PreActivity
 import com.kazee.waktoo.model.persetujuan.ContohData
@@ -34,7 +35,7 @@ class SplashContract {
     }
 
     @PreActivity
-    interface Presenter : BaseContract.Presenter<SplashContract.View> {
+    interface Presenter : BaseContract.Presenter<View> {
         /**
          * Init splash screen
          */
